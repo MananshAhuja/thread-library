@@ -1,0 +1,6 @@
+#ifndef THREAD_LIBRARY_INTERNAL_THREAD_INTERNAL_H
+#define THREAD_LIBRARY_INTERNAL_THREAD_INTERNAL_H
+
+/* TODO: Define the interfaces and types for thread_internal.h. */
+
+#endif /* THREAD_LIBRARY_INTERNAL_THREAD_INTERNAL_H */
