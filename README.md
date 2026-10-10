@@ -21,17 +21,20 @@ Headers have include guards and C++ compatibility. Mutex and synchronization
 headers have no API yet, as the corresponding reference files are empty.
 The C++ header includes the C API; a C++ wrapper remains to be designed.
 
-## Team branches
+## Branches
+
+`main` is the default integration branch. Each team member works on their own
+branch and opens pull requests into `main`.
 
 | Contributor | Branch |
 | --- | --- |
-| Manansh | `Manansh` (default) |
+| Manansh | `Manansh` |
 | Aman | `Aman` |
 | Aryan | `Aryan` |
 | Aditya | `Aditya` |
 
-All four branches start with the same project scaffold. Branch names are
-case-sensitive. There is no additional `main` branch.
+The repository has five branches: `main` and the four team branches above.
+Branch names are case-sensitive.
 
 ```sh
 git clone https://github.com/MananshAhuja/thread-library.git
@@ -39,7 +42,7 @@ cd thread-library
 git switch Aman  # Replace with your own branch name.
 ```
 
-Commit and push changes to your branch, then open a pull request into `Manansh`
+Commit and push changes to your branch, then open a pull request into `main`
 when ready to integrate. Each teammate needs collaborator write access to push;
 creating a named branch does not grant account access.
 
