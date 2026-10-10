@@ -4,12 +4,22 @@ A collaborative C thread library project with a C++ wrapper.
 
 ## Project status
 
-This repository is the initial project scaffold. All requested headers, source
-files, examples, tests, and benchmarks are present with TODO placeholders.
-Thread creation, scheduling, and synchronization are not implemented yet.
-The static archives build, but do not expose a working thread API.
-Example, test, and benchmark placeholders print `NOT IMPLEMENTED` and exit
-with code 77. Successful compilation is not a functional test pass.
+This repository contains starter declarations using the naming scheme in the
+team's reference code. Implementations, examples, tests, and benchmarks are
+not yet available. Source files contain only includes; example, test, and
+benchmark files are empty.
+
+The declared interfaces use `thread_control_block`, `thread_state_t`,
+`context_t`, `thread_create`, `thread_join`, `thread_exit`, `thread_yield`,
+`thread_start`, `scheduler_next`, `context_init`, and `context_switch`.
+Global thread state is declared in `internal/thread_internal.h`.
+`internal/structure.h` uses the reference's singular filename, and
+`internal/context.h` contains its x86-64 register layout.
+
+`context_init` takes a stack pointer, matching the reference implementation.
+Headers have include guards and C++ compatibility. Mutex and synchronization
+headers have no API yet, as the corresponding reference files are empty.
+The C++ header includes the C API; a C++ wrapper remains to be designed.
 
 ## Team branches
 
@@ -35,19 +45,22 @@ creating a named branch does not grant account access.
 
 ## Build
 
-Requires Make, a C11 compiler, a C++17 compiler, and `ar`.
+Requires Make, a C11 compiler, and a C++17 compiler.
 
 ```sh
 make
-make examples
-make tests
-make benchmarks
+make check
 make clean
 ```
 
-`make tests` compiles the test programs; implement assertions before running
-these as a test suite. Generated files stay under `build/` and are ignored by
-Git. `build/.gitkeep` preserves that otherwise-empty directory on GitHub.
+`make` and `make check` validate the declarations and header compatibility.
+They do not build a working library or run functional tests. Add implementation
+and linking rules as the library develops. `make examples`, `make tests`, and
+`make benchmarks` currently report that these files are empty and exit with
+an error instead of reporting a successful build.
+
+Generated files belong under `build/` and are ignored by Git.
+`build/.gitkeep` preserves that otherwise-empty directory on GitHub.
 
 ## Structure
 
@@ -72,8 +85,9 @@ thread-library/
 │   ├── thread.h
 │   └── thread.hpp
 ├── internal/
+│   ├── context.h
 │   ├── scheduler_internal.h
-│   ├── structures.h
+│   ├── structure.h
 │   └── thread_internal.h
 ├── src/
 │   ├── cpp/

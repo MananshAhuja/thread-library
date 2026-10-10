@@ -1,3 +1,1 @@
-/* TODO: Implement spinlock. */
-/* A placeholder type keeps this translation unit valid until implementation. */
-typedef int thread_library_spinlock_placeholder;
+#include "sync.h"

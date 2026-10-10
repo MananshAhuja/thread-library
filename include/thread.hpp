@@ -1,6 +1,6 @@
-#ifndef THREAD_LIBRARY_INCLUDE_THREAD_HPP
-#define THREAD_LIBRARY_INCLUDE_THREAD_HPP
+#ifndef THREAD_HPP
+#define THREAD_HPP
 
-/* TODO: Define the interfaces and types for thread.hpp. */
+#include "thread.h"
 
-#endif /* THREAD_LIBRARY_INCLUDE_THREAD_HPP */
+#endif /* THREAD_HPP */

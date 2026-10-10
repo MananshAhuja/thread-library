@@ -1,6 +1,7 @@
-#ifndef THREAD_LIBRARY_INTERNAL_SCHEDULER_INTERNAL_H
-#define THREAD_LIBRARY_INTERNAL_SCHEDULER_INTERNAL_H
+#ifndef SCHEDULER_INTERNAL_H
+#define SCHEDULER_INTERNAL_H
 
-/* TODO: Define the interfaces and types for scheduler_internal.h. */
+#include "scheduler.h"
+#include "thread_internal.h"
 
-#endif /* THREAD_LIBRARY_INTERNAL_SCHEDULER_INTERNAL_H */
+#endif /* SCHEDULER_INTERNAL_H */

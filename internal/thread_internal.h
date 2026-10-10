@@ -1,6 +1,18 @@
-#ifndef THREAD_LIBRARY_INTERNAL_THREAD_INTERNAL_H
-#define THREAD_LIBRARY_INTERNAL_THREAD_INTERNAL_H
+#ifndef THREAD_INTERNAL_H
+#define THREAD_INTERNAL_H
 
-/* TODO: Define the interfaces and types for thread_internal.h. */
+#include "thread.h"
 
-#endif /* THREAD_LIBRARY_INTERNAL_THREAD_INTERNAL_H */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+extern thread_control_block *current_thread;
+extern thread_control_block *thread_list;
+void thread_start(thread_control_block *tcb);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* THREAD_INTERNAL_H */

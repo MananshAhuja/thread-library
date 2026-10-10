@@ -1,6 +1,19 @@
-#ifndef THREAD_LIBRARY_INCLUDE_THREAD_H
-#define THREAD_LIBRARY_INCLUDE_THREAD_H
+#ifndef THREAD_H
+#define THREAD_H
 
-/* TODO: Define the interfaces and types for thread.h. */
+#include "structure.h"
 
-#endif /* THREAD_LIBRARY_INCLUDE_THREAD_H */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int thread_create(thread_control_block *thread, void (*function)(void *), void *arg);
+void thread_join(thread_control_block *thread);
+void thread_exit(void);
+void thread_yield(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* THREAD_H */

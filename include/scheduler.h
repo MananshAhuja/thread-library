@@ -1,6 +1,16 @@
-#ifndef THREAD_LIBRARY_INCLUDE_SCHEDULER_H
-#define THREAD_LIBRARY_INCLUDE_SCHEDULER_H
+#ifndef SCHEDULER_H
+#define SCHEDULER_H
 
-/* TODO: Define the interfaces and types for scheduler.h. */
+#include "structure.h"
 
-#endif /* THREAD_LIBRARY_INCLUDE_SCHEDULER_H */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+thread_control_block *scheduler_next(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* SCHEDULER_H */

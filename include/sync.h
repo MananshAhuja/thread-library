@@ -1,6 +1,4 @@
-#ifndef THREAD_LIBRARY_INCLUDE_SYNC_H
-#define THREAD_LIBRARY_INCLUDE_SYNC_H
+#ifndef SYNC_H
+#define SYNC_H
 
-/* TODO: Define the interfaces and types for sync.h. */
-
-#endif /* THREAD_LIBRARY_INCLUDE_SYNC_H */
+#endif /* SYNC_H */
