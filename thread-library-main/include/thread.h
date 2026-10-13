@@ -3,17 +3,15 @@
 
 #include "structure.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+extern thread_control_block *current_thread;
+extern thread_control_block *thread_list;
 
-int thread_create(thread_control_block *thread, void (*function)(void *), void *arg);
-void thread_join(thread_control_block *thread);
+void thread_start(thread_control_block *tcb);
+
 void thread_exit(void);
-void thread_yield(void);
 
-#ifdef __cplusplus
-}
+void thread_yield();
+
+void thread_join(thread_control_block *thread);
+
 #endif
-
-#endif /* THREAD_H */
