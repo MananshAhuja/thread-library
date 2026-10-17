@@ -3,7 +3,6 @@
 #include "structure.h"
 #include "thread.h"
 #include "context.h"
-thread_control_block *current_thread = NULL;
 thread_control_block *thread_list = NULL;
 #define DEFAULT_STACK_SIZE (64 * 1024)
 int thread_create(thread_control_block *thread, void (*function)(void *), void *arg)
