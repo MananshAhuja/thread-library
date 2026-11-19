@@ -1,0 +1,15 @@
+# Keep the build directory, but ignore generated artifacts.
+/build/*
+!/build/.gitkeep
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.d
+.DS_Store
+.vscode/
+.idea/
+*~
+*.swp
