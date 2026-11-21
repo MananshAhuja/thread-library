@@ -3,17 +3,23 @@
 
 #include "structure.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+//global thread pointers
+extern thread_control_block *current_thread;
+extern thread_control_block *thread_list;
 
-int thread_create(thread_control_block *thread, void (*function)(void *), void *arg);
-void thread_join(thread_control_block *thread);
+//thread management functions
+extern int benchmark_switch_count;
+
+int thread_create(thread_control_block*thread,void(*function)(void *),void *arg);
+
+void thread_start(thread_control_block *tcb);
+
 void thread_exit(void);
+
 void thread_yield(void);
 
-#ifdef __cplusplus
-}
-#endif
+int thread_join(thread_control_block *thread);
 
-#endif /* THREAD_H */
+int thread_block(void);
+
+#endif
