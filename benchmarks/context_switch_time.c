@@ -5,13 +5,23 @@
 #include"thread.h"
 #include"scheduler.h"
 #define iterations 100000
-static uint64_t get_time_ns(void){
+static int get_time_ns(uint64_t *time_ns)
+{
     struct timespec ts;
-    if(clock_gettime(CLOCK_MONOTONIC,&ts)!=0){ //The clock_gettime function will ask the os to give a timestamp.
-        perror("clock_gettime");//used to print error msg when a function fails.
-        return 0;
+
+    if (time_ns == NULL)
+        return -1;
+
+    if (clock_gettime(CLOCK_MONOTONIC, &ts) != 0)
+    {
+        perror("clock_gettime");
+        return -1;
     }
-    return (uint64_t)ts.tv_sec*1000000000ULL+ts.tv_nsec;//This will return total current time in nanoseconds.
+
+    *time_ns = (uint64_t)ts.tv_sec * 1000000000ULL
+               + (uint64_t)ts.tv_nsec;
+
+    return 0;
 }
 //create a worker function
 static void worker(void*arg)
@@ -27,11 +37,29 @@ int main(){
     thread_create(&threadB,worker,NULL);
     //start measuring time
     benchmark_switch_count=0;
-    uint64_t start=get_time_ns();//recording starting timestamp.
-    scheduler_dispatch();//start the scheduler and it selects ready threads and allow them to execute.
-    uint64_t end=get_time_ns();//recording ending timestamp.    
-    uint64_t elapsed=end-start;//Calculating the total time taken.
-    
+    uint64_t start, end;
+
+if (get_time_ns(&start) != 0)
+{
+    fprintf(stderr, "Failed to get start timestamp\n");
+    return 1;
+}
+
+scheduler_dispatch();
+
+if (get_time_ns(&end) != 0)
+{
+    fprintf(stderr, "Failed to get end timestamp\n");
+    return 1;
+}
+
+if (end < start)
+{
+    fprintf(stderr, "Invalid timer result\n");
+    return 1;
+}
+
+uint64_t elapsed = end - start;
     uint64_t switches=benchmark_switch_count ;//stores number of switches counted.
     if(switches>0){
         double average=(double)elapsed/switches;
