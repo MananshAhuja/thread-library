@@ -71,44 +71,29 @@ Generated files belong under `build/` and are ignored by Git.
 thread-library/
 ├── benchmarks/
 │   ├── context_switch_time.c
-│   ├── creation_time.c
-│   └── mutex_performance.c
 ├── build/
 │   └── .gitkeep
-├── examples/
-│   ├── cpp_example.cpp
-│   ├── hello_thread.c
-│   ├── multiple_threads.c
-│   ├── producer_consumer.c
-│   └── shared_counter.c
 ├── include/
 │   ├── mutex.h
 │   ├── scheduler.h
-│   ├── sync.h
 │   ├── thread.h
 │   └── thread.hpp
 ├── internal/
 │   ├── context.h
-│   ├── scheduler_internal.h
+|   ├── context.c
 │   ├── structure.h
-│   └── thread_internal.h
+|   ├── context_switch.S
 ├── src/
 │   ├── cpp/
 │   │   └── thread.cpp
 │   ├── scheduler/
-│   │   ├── priority_queue.c
-│   │   ├── round_robin.c
 │   │   └── scheduler.c
 │   ├── sync/
-│   │   ├── futex.c
 │   │   ├── mutex.c
 │   │   ├── semaphore.c
-│   │   └── spinlock.c
 │   └── thread/
 │       ├── thread.c
 │       ├── thread_create.c
-│       ├── thread_exit.c
-│       └── thread_join.c
 ├── tests/
 │   ├── stress_test.c
 │   ├── test_mutex.c
