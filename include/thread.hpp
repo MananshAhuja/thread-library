@@ -1,6 +1,28 @@
 #ifndef THREAD_HPP
 #define THREAD_HPP
 
-#include "thread.h"
+extern "C" {
+    #include "thread.h"
+    #include "structure.h"
+}
 
-#endif /* THREAD_HPP */
+class Thread
+{
+private:
+    thread_control_block tcb;
+    void (*function)(void *);
+    void *arg;
+    bool created;
+
+public:
+    Thread(void (*func)(void *), void *argument = nullptr);
+
+    int start();
+    int join();
+
+    static void yield();
+
+    ~Thread();
+};
+
+#endif
