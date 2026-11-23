@@ -1,0 +1,21 @@
+name: Presentation demos
+
+on:
+  push:
+    branches: [main, Manansh]
+    paths:
+      - "reference-implementation/**"
+      - ".github/workflows/presentation-demos.yml"
+  pull_request:
+    paths:
+      - "reference-implementation/**"
+      - ".github/workflows/presentation-demos.yml"
+  workflow_dispatch:
+
+jobs:
+  demos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and run C and C++ presentation demos
+        run: bash reference-implementation/run_presentations.sh
