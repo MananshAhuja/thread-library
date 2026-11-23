@@ -1,0 +1,7 @@
+*.o
+*.dSYM/
+thread_demo
+sync_test
+switch_benchmark
+cpp_demo
+*.exe
